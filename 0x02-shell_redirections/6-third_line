@@ -1,0 +1,2 @@
+#!/bin/bash
+cat 6-third_line|head-3|tail -1
