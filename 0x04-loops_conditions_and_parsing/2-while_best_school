@@ -1,2 +1,8 @@
-#!/user/bin/env bash
-
+#!/usr/bin/env bash
+# Initialize a count
+count=0
+while [ $count -lt 10 ]
+do
+	echo "Best School"
+	((count++))
+done
