@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Iterate through files in the current directory
+for file in *-*; do
+  # Check if the file is not a directory and not hidden
+  if [ -f "$file" ] && [[ "$file" != .* ]]; then
+    # Extract the part of the name after the first dash
+    filename=$(echo "$file" | cut -d '-' -f 2-)
+    # Display the modified filename in a list format
+    echo "- $filename"
+  fi
+done
