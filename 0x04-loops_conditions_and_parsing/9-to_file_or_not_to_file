@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
 # Specify the file name
 file="school"
 
 # Check if the file exists
-if [ -e "$file" ]; then
+if [ -e "$file" ];then
   echo "school file exists"
 
   # Check if the file is empty
