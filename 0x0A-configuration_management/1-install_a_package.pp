@@ -1,7 +1,12 @@
-# puppet manifest : 1-install_a_package.pp
-# Using Puppet, install flask from pip3
-
-package { 'flask':
-  ensure   => '2.1.0',
+# Install Werkzeug first
+package { 'werkzeug':
+  ensure   => '2.3.7',
   provider => 'pip3',
+}
+
+# Install Flask with a specific version
+package { 'flask':
+  ensure   => '2.2.2',
+  provider => 'pip3',
+  require  => Package['werkzeug'], # Ensure Werkzeug is installed first
 }
