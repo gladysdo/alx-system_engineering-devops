@@ -8,5 +8,5 @@ package { 'werkzeug':
 package { 'flask':
   ensure   => '2.2.2',
   provider => 'pip3',
-  require  => Package['werkzeug'], # Ensure Werkzeug is installed first
+  require  => Package['werkzeug'],
 }
