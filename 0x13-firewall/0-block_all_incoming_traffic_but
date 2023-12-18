@@ -1,0 +1,12 @@
+#configuration
+sudo vi /etc/default/ufw
+#define are your default policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+#configure your server to allow incoming SSH connections
+sudo ufw allow ssh
+sudo ufw allow 22
+sudo ufw enable
+sudo ufw status verbose
+sudo ufw allow 80
+sudo ufw allow 443
