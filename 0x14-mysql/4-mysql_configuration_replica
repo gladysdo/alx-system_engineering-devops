@@ -1,0 +1,5 @@
+symbolic-links=0
+server-id = 2
+log_bin = /var/log/mysql/mysql_bin_log.log
+binlog_do_db = tyrell_corp
+relay_log = /var/log/mysql/mysql_relay_bin.log
