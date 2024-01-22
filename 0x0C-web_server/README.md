@@ -1,12 +1,7 @@
+
+
 0x0C. Web server
-DevOps
-SysAdmin
- By: Sylvain Kalache
- Weight: 1
- Project will start Nov 26, 2023 6:00 PM, must end by Nov 28, 2023 6:00 PM
- Checker was released at Nov 27, 2023 6:00 AM
- An auto review will be launched at the deadline
-Concepts
+
 For this project, we expect you to look at this concept:
 
 What is a Child Process?
