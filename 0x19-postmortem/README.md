@@ -1,91 +1,54 @@
 
-stmortem
-DevOps
-SysAdmin
- By: Sylvain Kalache
- Weight: 1
- Project will start Jan 14, 2024 6:00 PM, must end by Jan 21, 2024 6:00 PM
- Manual QA review must be done (request it when you are done with the project)
-Concepts
-For this project, we expect you to look at this concept:
 
-On-call
-Background Context
+Postmortem: Web Stack Debugging Incident
 
 
-Any software system will eventually fail, and that failure can come stem from a wide range of possible factors: bugs, traffic spikes, security issues, hardware failures, natural disasters, human error… Failing is normal and failing is actually a great opportunity to learn and improve. Any great Software Engineer must learn from his/her mistakes to make sure that they won’t happen again. Failing is fine, but failing twice because of the same issue is not.
+Duration:	
+Start Time: 2024-01-21 11:00 GMT
+End Time: 2024-01-21 17:30 GMT
+Impact:
+The API service was completely down for approximately 2 hours and 30 minutes.
+Users experienced a 500 Internal Server Error during the outage.
+Root Cause:
+The root cause was identified as a misconfiguration in the Apache server settings.
+Timeline:
+15:00 GMT: Issue Detection
+The issue was detected through monitoring alerts indicating a sudden spike in 500 errors.
+15:15 GMT: Initial Investigation
+Investigation began by checking server logs and running basic diagnostics.
+Strace was utilized to trace the running processes and understand system calls.
+Initial assumption was a potential DDoS attack due to the sudden increase in error rates.
+16:00 GMT: Misleading Investigation Paths
+Multiple failed attempts to access a specific API endpoint were observed in the logs.
+Focus shifted towards a possible security breach or a vulnerability in the API code.
+17:00 GMT: Escalation
+The incident was escalated to the development team as the operations team could not identify the root cause.
+Further investigation was conducted by the development team, analyzing the  codebase.
+17:30 GMT: Issue Resolution
+The root cause was identified using strace, revealing a misconfiguration in the Apache server's virtual host settings.
+The misconfiguration led to incorrect routing of requests, causing the 500 errors.
+The configuration was corrected, and Apache was restarted to apply the changes.
+Testing was conducted to ensure the issue was fully resolved.
+Root Cause Explanation:
+The Apache server's virtual host settings were incorrectly configured, leading to misrouting of requests.
+Resolution Details:
+The misconfigured virtual host settings were corrected to properly route requests to the API service.
+Apache was restarted to apply the configuration changes.
+Extensive testing was conducted to ensure the issue was fully resolved.
+Corrective and Preventative Measures:
+Improvements/Fixes:
+Enhanced monitoring: Implementation of more granular monitoring for specific API endpoints to quickly detect similar issues.
+Regular configuration audits: Schedule regular reviews of server configurations to catch potential misconfigurations early.
+Tasks to Address the Issue:
+Immediate:
+Implementation of automated tests for Apache virtual host configurations to catch errors before deployment.
+Update incident response playbook to include strace for diagnosing server-related issues.
+Short-term:
+Conduct a comprehensive review of all server configurations to identify and rectify potential misconfigurations.
+Provide additional training for operations and development teams on effective incident response and debugging techniques.
+Long-term:
+Exploration of the possibility of implementing a blue-green deployment strategy to minimize downtime during configuration changes.
+Investigate the feasibility of incorporating automated configuration management tools beyond Puppet for better infrastructure management.
+Conclusion:
+The web stack outage was successfully resolved by identifying and correcting the misconfiguration in the Apache server settings. Lessons learned from this incident will be used to implement preventive measures and improve the overall robustness of the system. The incident highlights the importance of comprehensive monitoring, swift debugging techniques, and proactive configuration management.
 
-A postmortem is a tool widely used in the tech industry. After any outage, the team(s) in charge of the system will write a summary that has 2 main goals:
-
-To provide the rest of the company’s employees easy access to information detailing the cause of the outage. Often outages can have a huge impact on a company, so managers and executives have to understand what happened and how it will impact their work.
-And to ensure that the root cause(s) of the outage has been discovered and that measures are taken to make sure it will be fixed.
-Resources
-Read or watch:
-
-Incident Report, also referred to as a Postmortem
-The importance of an incident postmortem process
-What is an Incident Postmortem?
-More Info
-Manual QA Review
-It is your responsibility to request a review for your postmortem from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.
-
-Tasks
-0. My first postmortem
-mandatory
-
-
-Using one of the web stack debugging project issue or an outage you have personally face, write a postmortem. Most of you will never have faced an outage, so just get creative and invent your own :)
-
-Requirements:
-
-Issue Summary (that is often what executives will read) must contain:
-duration of the outage with start and end times (including timezone)
-what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-what was the root cause
-Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
-
-when was the issue detected
-how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
-actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-misleading investigation/debugging paths that were taken
-which team/individuals was the incident escalated to
-how the incident was resolved
-Root cause and resolution must contain:
-
-explain in detail what was causing the issue
-explain in detail how the issue was fixed
-Corrective and preventative measures must contain:
-
-what are the things that can be improved/fixed (broadly speaking)
-a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
-Be brief and straight to the point, between 400 to 600 words
-
-While postmortem format can vary, stick to this one so that you can get properly reviewed by your peers.
-
-Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
-
-Add URLs here:
-https://docs.google.com/document/d/1-mbttT5ehvPgx1CMhkB-lxoG_WS-9x8y/edit?usp=sharing&ouid=101142721194304851639&rtpof=true&sd=true 
-https://docs.google.com/document/d/1-mbttT5ehvPgx1CMhkB-lxoG_WS-9x8y/edit?usp=sharing&ouid=101142721194304851639&rtpof=true&sd=true 
-Repo:
-
-GitHub repository: alx-system_engineering-devops
-Directory: 0x19-postmortem
-File: README.md
- 
-1. Make people want to read your postmortem
-#advanced
-We are constantly stormed by a quantity of information, it’s tough to get people to read you.
-
-Make your post-mortem attractive by adding humour, a pretty diagram or anything that would catch your audience attention.
-
-Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
-
-Add URLs here:
- 
-https://docs.google.com/document/d/1-mbttT5ehvPgx1CMhkB-lxoG_WS-9x8y/edit?usp=sharing&ouid=101142721194304851639&rtpof=true&sd=true
-Repo:
-
-GitHub repository: alx-system_engineering-devops
-Directory: 0x19-postmortem
-File: README.md
