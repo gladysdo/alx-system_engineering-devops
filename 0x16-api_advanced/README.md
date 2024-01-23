@@ -1,18 +1,6 @@
 0x16. API advanced
-Python
-Scripting
-Back-end
-API
- By: Tim Britton - Cohort #1
- Weight: 1
- Ongoing second chance project - started Jan 15, 2024 6:00 PM, must end by Jan 18, 2024 6:00 PM
- An auto review will be launched at the deadline
-In a nutshell…
-Auto QA review: 0.0/17 mandatory & 0.0/7 optional
-Altogether:  0.0%
-Mandatory: 0.0%
-Optional: 0.0%
-Calculation:  0.0% + (0.0% * 0.0%)  == 0.0%
+
+
 
 
 Background Context
