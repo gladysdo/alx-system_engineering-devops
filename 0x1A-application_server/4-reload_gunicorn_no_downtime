@@ -2,9 +2,3 @@
 #gracefully reload gunicorn
 
 pgrep gunicorn | xargs kill -HUP
-
-
-or
-
-
-pkill -HUP gunicorn
