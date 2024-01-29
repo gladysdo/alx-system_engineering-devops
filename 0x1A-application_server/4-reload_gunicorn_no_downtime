@@ -1,4 +1,0 @@
-#!/usr/bin/evn bash
-#gracefully reload gunicorn
-
-pgrep gunicorn | xargs kill -HUP
